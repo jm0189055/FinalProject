@@ -1,11 +1,16 @@
 'use strict';
 
-let express = require('express');
-let passport = require('passport');
-let Strategy = require('passport-facebook').Strategy;
+let express = require('express'),
+  passport = require('passport'),
+  Strategy = require('passport-facebook').Strategy,
+  app = express();
 
 
+//Configure view engine
+app.set('views', './views');
+app.set('view engine', 'pug');
 
+//Configure Passport
 passport.use(new Strategy({
     clientID: 323551068232636,
     clientSecret: '2e4bf98c9cc143e4b00cab6a95e2de9b',
@@ -16,7 +21,6 @@ passport.use(new Strategy({
   })
 );
 
-
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
@@ -25,12 +29,7 @@ passport.deserializeUser(function(id, done) {
   done(null, id);
 });
 
-
-let app = express();
-
-app.set('views', './views');
-app.set('view engine', 'pug');
-
+//Logger/Debugger
 app.use(require('morgan')('combined'));
 app.use(require('cookie-parser')());
 app.use(require('body-parser').urlencoded({ extended: true }));
@@ -39,6 +38,8 @@ app.use(require('express-session')({ secret: 'topsecretpasscode', resave: true, 
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+//ROUTES
 app.get('/',
   function(req, res) {
     console.log("root REQUEST");
@@ -56,25 +57,12 @@ app.get('/api',
     res.render('api');
 });
 
-app.get('/login/facebook',
-  passport.authenticate('facebook'));
-
-// app.get('/login/facebook/return', passport.authenticate('facebook', { failureRedirect: '/login' }), function(req, res) {
-//     console.log("inside return route..");
-//     res.redirect('/');
-//   });
+app.get('/login/facebook', passport.authenticate('facebook'));
 
 app.get('/login/facebook/return', passport.authenticate('facebook', { failureRedirect: '/login' }), function(req, res) {
     console.log("inside return route..");
     res.redirect('/api');
 });
-
-// app.get('/profile',
-//   require('connect-ensure-login').ensureLoggedIn(),
-//   function(req, res){
-//     console.log("inside profile route..");
-//     res.render('profile', { user: req.user });
-// });
 
 app.listen(3000, function(){
     console.log('App listening on port 3000');
