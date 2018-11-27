@@ -1,0 +1,7 @@
+extends layout
+block content
+    if user
+        p Welcome #{user}!
+    else
+    | Please
+    a(href="/login") login
