@@ -13,7 +13,8 @@ passport.use(new Strategy({
   },
   function(accessToken, refreshToken, profile, done) {
     return done(null, profile);
-  }));
+  })
+);
 
 
 passport.serializeUser(function(user, done) {
@@ -40,29 +41,41 @@ app.use(passport.session());
 
 app.get('/',
   function(req, res) {
+    console.log("root REQUEST");
+    console.log("USER is: " + req.user);
     res.render('home', { user: req.user });
-  });
+});
 
 app.get('/login',
   function(req, res){
     res.render('login');
-  });
+});
+
+app.get('/api',
+  function(req, res){
+    res.render('api');
+});
 
 app.get('/login/facebook',
   passport.authenticate('facebook'));
 
+// app.get('/login/facebook/return', passport.authenticate('facebook', { failureRedirect: '/login' }), function(req, res) {
+//     console.log("inside return route..");
+//     res.redirect('/');
+//   });
+
 app.get('/login/facebook/return', passport.authenticate('facebook', { failureRedirect: '/login' }), function(req, res) {
     console.log("inside return route..");
-    res.redirect('/');
-  });
+    res.redirect('/api');
+});
 
-app.get('/profile',
-  require('connect-ensure-login').ensureLoggedIn(),
-  function(req, res){
-    console.log("inside profile route..");
-    res.render('profile', { user: req.user });
-  });
+// app.get('/profile',
+//   require('connect-ensure-login').ensureLoggedIn(),
+//   function(req, res){
+//     console.log("inside profile route..");
+//     res.render('profile', { user: req.user });
+// });
 
 app.listen(3000, function(){
-    console.log('App listening on port 3003');
+    console.log('App listening on port 3000');
 });
