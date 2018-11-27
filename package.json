@@ -1,26 +1,29 @@
 {
   "name": "finalproject",
   "version": "1.0.0",
+  "description": "Final project of Johnny McMahan, Jonathan Hovick, and Tyler Ney",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-=======
     "body-parser": "^1.18.3",
->>>>>>> c5091c27974baab37c67fdfbbff2b748919e06f1
     "connect-ensure-login": "^0.1.1",
     "cookie-parser": "^1.4.3",
-    "express": "^4.16.4",
     "express-session": "^1.15.6",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
-    "passport-facebook": "^2.1.1",
-    "pug": "^2.0.3"
+    "passport-facebook": "^2.1.1"
   },
   "devDependencies": {},
-  "description": ""
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jm0189055/FinalProject.git"
+  },
+  "author": "Johnny, Jonathan, Tyler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jm0189055/FinalProject/issues"
+  },
+  "homepage": "https://github.com/jm0189055/FinalProject#readme"
 }
