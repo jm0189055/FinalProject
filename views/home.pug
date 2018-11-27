@@ -1,7 +1,7 @@
 extends layout
 block content
     if user
-        p Welcome #{user}!
+        p Welcome #{user.displayName}!
     else
-    | Please
-    a(href="/login") login
+      | Please
+      a(href="/login")  login

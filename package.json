@@ -8,6 +8,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "body-parser": "^1.18.3",
+>>>>>>> c5091c27974baab37c67fdfbbff2b748919e06f1
     "connect-ensure-login": "^0.1.1",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.4",
