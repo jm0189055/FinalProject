@@ -2,11 +2,25 @@
 
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 25px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: #BBCDE5;
   background: #1C5D99;
 }
 
 a {
   color: #00B7FF;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+h1 {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

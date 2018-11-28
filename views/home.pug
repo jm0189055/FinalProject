@@ -1,7 +1,11 @@
 extends layout
+append styles
+    style 
+        include ../source/css/home.css
 block content
     if user
         p Welcome #{user.displayName}!
     else
-      | Please
-      a(href="/login")  login
+      h1 Welcome! Please login
+      form(method='get', action='/login')
+        button(type='submit')#login Login

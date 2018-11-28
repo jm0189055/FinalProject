@@ -64,6 +64,6 @@ app.get('/login/facebook/return', passport.authenticate('facebook', { failureRed
     res.redirect('/api');
 });
 
-app.listen(3000, function(){
-    console.log('App listening on port 3000');
+const server = app.listen(3000, function(){
+    console.log(`App listening on port ${server.address().port}`);
 });
