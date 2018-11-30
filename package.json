@@ -7,10 +7,13 @@
     "body-parser": "^1.18.3",
     "connect-ensure-login": "^0.1.1",
     "cookie-parser": "^1.4.3",
+    "express": "^4.16.4",
     "express-session": "^1.15.6",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
-    "passport-facebook": "^2.1.1"
+    "passport-facebook": "^2.1.1",
+    "pug": "^2.0.3",
+    "request": "^2.88.0"
   },
   "devDependencies": {},
   "scripts": {
