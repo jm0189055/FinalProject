@@ -1,5 +1,4 @@
 
-
 body {
   padding: 50px;
   font: 25px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -7,21 +6,10 @@ body {
   background: #1C5D99;
 }
 
-a {
-  color: #00B7FF;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-a:hover {
-  color: #ffffff;
-}
-
 h1 {
   position: fixed;
   left: 50%;
+  top: 5%;
   transform: translate(-50%, -50%);
 }
 
@@ -32,4 +20,65 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+ul {
+  list-style-type: none;
+  border: 1px solid #555;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+li {
+  border-bottom: 1px solid #555;
+}
+li a {
+  display: block;
+
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+p {
+    font: 25px "Lucida Grande", Helvetica, Arial, sans-serif;
+    padding: 7px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+table, td, th {
+    border: 1px solid white;
+}
+
+table {
+    margin: 50px;
+    padding-top: 200px;
+    border-collapse: collapse;
+    margin-left: 1%;
+    margin-right: auto;
+    margin-top: 50px;
+}
+th {
+    font: 21px "Lucida Grande", Helvetica, Arial, sans-serif;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+}
+td {
+    font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
+    height: 22px;
+    padding: 15px;
 }

@@ -1,4 +1,14 @@
 extends layout
+append styles
+    style
+        include ../source/css/index.css
 block content
     h1 ---App name here---
-    p A simple web application using the Open Secrets API
+    h2 A simple web application using the Open Secrets API
+        table
+            tr
+                th Person
+                th Phone Number
+            tr
+                td #{person.firstlast}
+                td #{person.phone}
