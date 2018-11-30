@@ -1,11 +1,15 @@
 extends layout
+
 append content
     h1 ---App name here---
     h2 A simple web application using the Open Secrets API
         table
             tr
-                th Person
+                th Member
+                th Party
                 th Phone Number
-            tr
-                td #{person.firstlast}
-                td #{person.phone}
+            each person in congress
+                tr
+                    td=person.firstlast
+                    td=person.party
+                    td=person.phone

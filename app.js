@@ -51,7 +51,6 @@ app.get('/', function(req, res) {
 
 
 app.get('/login', function(req, res){
-    console.log('\n\n\n' + Object.key(req.user));
     res.render('login', { user: req.user });
 });
 
@@ -95,12 +94,17 @@ app.get('/api', function(req, res){
         The line below is how that info is accessed. The legislator array at info.response.legislator[3] refers to the 4th element, aka the 4th legislator in that list.
         */
         let name = info.response.legislator[3]['@attributes']; //json body text reads '@attribute' so the workaround is to enclose it in brackets bc you cant have @ in an object name. so it's basically the same as info.response.legislator[1].attributes
-
+        let people = {};
+        for(let i in info.response.legislator){
+            people[i] = info.response.legislator[i]['@attributes'];
+        }
+        //console.log(people[0])
         res.render('api', {
-            //in pug we use person.firstlast to generate their Name
-            //you can do this with any key from the json body, i.e. cid, gender, party
-            //
-            person: name,
+            /*
+            in pug we use person.firstlast to generate their Name
+            you can do this with any key from the json body, i.e. cid, gender, party
+            */
+            congress: people
         });
 
     });
