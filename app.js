@@ -3,6 +3,7 @@
 let express = require('express'),
   passport = require('passport'),
   Strategy = require('passport-facebook').Strategy,
+  request = require('request'),
   app = express();
 
 
@@ -37,6 +38,8 @@ app.use(require('express-session')({ secret: 'topsecretpasscode', resave: true, 
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 
 //ROUTES
@@ -44,24 +47,42 @@ app.get('/',
   function(req, res) {
     console.log("root REQUEST");
     console.log("USER is: " + req.user);
-    res.render('home', { user: req.user });
+    res.render('login', { user: req.user });
 });
 
-app.get('/login',
+app.get('/home',
   function(req, res){
-    res.render('login');
+    res.render('home', {user: req.user});
 });
+
+app.get('/logout', function(req, res) {
+  req.logOut();
+  res.redirect('/');
+})
 
 app.get('/api',
   function(req, res){
-    res.render('api');
+    request(
+      {
+        method: 'GET',
+        url: `http://www.opensecrets.org/api/?method=getLegislators&id=MO&apikey=1dbc81aae134a2b72e3d2cd647b5ab4c&output=json`,
+        json: true
+      },
+      function(error, response, body) {
+        res.send(body)
+      },
+      
+    );
+
+    
+    
 });
 
 app.get('/login/facebook', passport.authenticate('facebook'));
 
-app.get('/login/facebook/return', passport.authenticate('facebook', { failureRedirect: '/login' }), function(req, res) {
+app.get('/login/facebook/return', passport.authenticate('facebook', { failureRedirect: '/' }), function(req, res) {
     console.log("inside return route..");
-    res.redirect('/api');
+    res.redirect('/home');
 });
 
 const server = app.listen(3000, function(){
