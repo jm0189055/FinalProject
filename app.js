@@ -45,14 +45,16 @@ app.use(passport.session());
 
 //ROUTES
 app.get('/', function(req, res) {
-    console.log("root REQUEST");
-    console.log("USER is: " + req.user);
-    res.render('home', { user: req.user });
+    //console.log('\n\n\n' + Object.keys(req.user));
+    res.render('login', { user: req.user });
 });
 
+
 app.get('/login', function(req, res){
-    res.render('login');
+    console.log('\n\n\n' + Object.key(req.user));
+    res.render('login', { user: req.user });
 });
+
 
 app.get('/api', function(req, res){
     // query strings and their parameters for 'getLegislators'
@@ -112,6 +114,15 @@ app.get('/login/facebook/return', passport.authenticate('facebook', { failureRed
     res.redirect('/api');
 });
 
+app.get('/logout', function(req, res){
+  req.logout();
+  res.render('logout');
+});
+
+app.get('/about', function(req, res){
+  req.logout();
+  res.render('about');
+});
 const server = app.listen(3000, function(){
     console.log(`App listening on port ${server.address().port}`);
 });
