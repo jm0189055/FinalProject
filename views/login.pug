@@ -1,6 +1,12 @@
 extends layout
 
-block content
-  form(method='get', action='/login/facebook')
-        button(type='submit')#facebook-login Login With Facebook
-
+append content
+    if user
+        h1 Welcome #{user.displayName}
+            p You are already logged in.
+        form(method='get', action='/api')
+            button(type='submit')#facebook-login API
+    else
+        h1 Please login
+        form(method='get', action='/login/facebook')
+            button(type='submit')#facebook-login Login With Facebook

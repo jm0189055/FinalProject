@@ -1,11 +1,6 @@
 extends layout
-append styles
-    style
-        include ../source/css/index.css
-block content
+append content
     if user
-        p Welcome #{user.displayName}!
+        h1 Welcome, #{user.displayName}!
     else
-      h1 Welcome! Please login
-      form(method='get', action='/login')
-        button(type='submit')#login Login
+        h1 Please login
