@@ -9,7 +9,8 @@ append content
                 th Party
                 th Phone Number
             each person in congress
-                tr
-                    td=person.firstlast
+                tr 
+                    td  
+                        a(href='/bio')=person.firstlast
                     td=person.party
                     td=person.phone
