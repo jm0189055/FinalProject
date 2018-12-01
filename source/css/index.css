@@ -53,9 +53,10 @@ li:last-child {
 p {
     font: 25px "Lucida Grande", Helvetica, Arial, sans-serif;
     padding: 7px;
-    position: fixed;
-    top: 50%;
+    position: absolute;
+    top: 90%;
     left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 table, td, th {
