@@ -13,7 +13,8 @@
     "passport": "^0.4.0",
     "passport-facebook": "^2.1.1",
     "pug": "^2.0.3",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "twit": "^2.2.11"
   },
   "devDependencies": {},
   "scripts": {
