@@ -1,0 +1,14 @@
+Congress member photo can be found at the following location. Use the congress person's CID to pull up their image. 
+
+
+https://dkftve4js3etk.cloudfront.net/congress-members/photos/N00027694.jpg
+
+
+
+
+
+TWITTER:
+
+ORbWcVq7pJfEXTI5x6WcdWvJD (API key)
+
+xnwKgMto0pdoyhV6a2PRKwZJpGDQtmDog5GMtNHKPK2upymfW3 (API secret key)
