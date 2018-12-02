@@ -86,3 +86,11 @@ td {
 td a {
   color: #ffffff;
 }
+
+.thumb {
+  display: none;
+}
+
+td a:hover .thumb {
+  display: block;
+}
