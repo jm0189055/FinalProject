@@ -117,6 +117,20 @@ app.get('/api', function(req, res){
     });
 });
 
+app.post('/ajax', function (req, res) {
+    console.log(req.body);
+    let info = JSON.parse(req.body);
+    let people = {};
+    for(let i in info.response.legislator) {
+        people[i] = info.response.legislator[i]['@attributes'];
+    }
+    res.json({
+        congress:people
+
+
+    });
+});
+
 app.get('/share/:id', function(req,res){
     let id = req.params.id;
     console.log(id);
@@ -151,7 +165,6 @@ app.get('/logout', function(req, res){
 app.get('/about', function(req, res){
   res.render('about');
 });
-
 const server = app.listen(3000, function(){
     console.log(`App listening on port ${server.address().port}`);
 });

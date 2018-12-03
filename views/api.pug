@@ -3,6 +3,14 @@ extends layout
 append content
     h1 ---App name here---
     h2 A simple web application using the Open Secrets API
+    h3 Choose a state:
+    div
+        form(action='/ajax' method="post")
+            select(name='dropDown', id='drop')
+                each state in states
+                    option=state
+                input(id='submit-state', type='submit', value='Submit')
+    h4
         table
             tr
                 th Member
@@ -11,7 +19,7 @@ append content
             each person in congress
                 tr 
                     td  
-                        a(href='/bio')=person.firstlast
+                        a(href='/share/' + person.cid)=person.firstlast
                             img.thumb(src=`https://dkftve4js3etk.cloudfront.net/congress-members/photos/${person.cid}.jpg`)
                     td=person.party
                     td=person.phone
