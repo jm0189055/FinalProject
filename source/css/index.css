@@ -59,11 +59,11 @@ p {
     transform: translate(-50%, -50%);
 }
 
-table, td, th {
+#congress, td, th {
     border: 1px solid white;
 }
 
-table {
+#congress {
     position: relative;
     z-index: 100;
     margin: 50px;
@@ -97,27 +97,5 @@ td a:hover .thumb {
   position: absolute;
   z-index: 101;
   display: block;
-<<<<<<< HEAD
-}
-
-
-.dropdown-menu li:hover .sub-menu {
-    visibility: visible;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-    margin-top: 0;
-}
-
-.dropdown-menu .sub-menu {
-    left: 100%;
-    position: absolute;
-    top: 0;
-    visibility: hidden;
-    margin-top: -1px;
-}
-=======
   margin-top: 1%;
 }
->>>>>>> c8bb40bbc791863ed5be9fffddf897d445577b02
