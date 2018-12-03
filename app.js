@@ -4,7 +4,13 @@ let express = require('express'),
   passport = require('passport'),
   Strategy = require('passport-facebook').Strategy,
   request = require('request'),
-  app = express();
+  data = require('./usa.json'),
+  app = express(),
+  Twit = require('twit'),
+  config = require('./config'),
+  T = new Twit(config);
+
+
 
 
 //Configure view engine
@@ -104,11 +110,30 @@ app.get('/api', function(req, res){
             in pug we use person.firstlast to generate their Name
             you can do this with any key from the json body, i.e. cid, gender, party
             */
-            congress: people
+            congress: people,
+            states: data
         });
 
     });
 });
+
+app.get('/share/:id', function(req,res){
+    let id = req.params.id;
+    console.log(id);
+
+    let tweet = {
+        status: `Know your congress member! https://www.opensecrets.org/members-of-congress/summary?cid=${id}&cycle=CAREER`
+    };
+    T.post('statuses/update', tweet, tweeted)
+    function tweeted(err, data, response) {
+        if (err) {
+            console.log("An error occured");
+        }
+        else {
+            console.log("Know Your");
+        }
+    }
+})
 
 //gonna delete this
 app.get('/login/facebook', passport.authenticate('facebook'));
@@ -126,6 +151,7 @@ app.get('/logout', function(req, res){
 app.get('/about', function(req, res){
   res.render('about');
 });
+
 const server = app.listen(3000, function(){
     console.log(`App listening on port ${server.address().port}`);
 });
