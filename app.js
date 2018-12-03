@@ -140,14 +140,17 @@ app.get('/share/:id', function(req,res){
     };
     T.post('statuses/update', tweet, tweeted)
     function tweeted(err, data, response) {
-        if (err) {
-            console.log("An error occured");
-        }
-        else {
-            console.log("Know Your");
-        }
+        // if (err) {
+        //     console.log("An error occured");
+        // }
+        // else {
+        //     console.log("Know Your");
+        // }
     }
-})
+    res.render('about', {
+        message: "Thanks for tweeting!"
+    });
+});
 
 //gonna delete this
 app.get('/login/facebook', passport.authenticate('facebook'));
